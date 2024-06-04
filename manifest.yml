@@ -1,0 +1,31 @@
+modules:
+  jira:projectPage:
+    - key: 6my-jiraapp-hello-world-project-page
+      resource: main
+      resolver:
+        function: resolver
+      title: 6my-JiraApp
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+
+permissions:
+  content:
+    scripts:
+      - unsafe-inline
+    styles:
+      - unsafe-inline
+
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - storage:app
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/f90b69d1-64ff-4b4c-9a95-f821660ffe4d
+
+
